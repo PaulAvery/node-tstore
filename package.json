@@ -1,0 +1,44 @@
+{
+  "name": "tstore",
+  "version": "1.0.0",
+  "bin": "lib/tstore.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulAvery/node-tstore.git"
+  },
+  "devDependencies": {
+    "eslint": "^0.18.0",
+    "version-bump": "^0.1.0",
+    "babel": "^4.7.16"
+  },
+  "scripts": {
+    "test": "make lint",
+    "prepublish": "make lint"
+  },
+  "author": "Florian Albertz",
+  "license": "BSD-3-Clause",
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "curly": [
+        2,
+        "multi-line"
+      ],
+      "quotes": [
+        2,
+        "single"
+      ]
+    },
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "dependencies": {
+    "commander": "^2.8.0",
+    "hogan.js": "^3.0.2",
+    "mkdirp": "^0.5.0"
+  }
+}
