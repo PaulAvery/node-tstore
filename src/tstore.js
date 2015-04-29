@@ -7,7 +7,10 @@ import hogan from 'hogan.js';
 import app from 'commander';
 import DataStore from './DataStore';
 
-var store = new DataStore(process.env.TSTORE_HOME || path.join(process.env.HOME, '.config/tstore'));
+var home = process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'];
+var src = process.env.TSTORE_HOME || path.join(home, '.config/wpmanager');
+
+var store = new DataStore(src);
 
 app.version(pkg.version);
 
