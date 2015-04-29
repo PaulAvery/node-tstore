@@ -15,13 +15,13 @@ clean:
 lint:
 	@$(BIN)/eslint src
 
-release-major: test
+release-major: lint
 	@$(BIN)/bump --major
 
-release-minor: test
+release-minor: lint
 	@$(BIN)/bump --minor
 
-release-patch: test
+release-patch: lint
 	@$(BIN)/bump --patch
 
 publish:
