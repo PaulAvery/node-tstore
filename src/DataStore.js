@@ -21,7 +21,7 @@ export default class DataStore {
 		var data = JSON.parse(json);
 
 		for(let step in steps) {
-			data = data[step];
+			data = data[steps[step]];
 		}
 
 		return data;
