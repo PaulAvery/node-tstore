@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "make lint",
-    "prepublish": "make lint"
+    "prepublish": "make && make lint"
   },
   "author": "Florian Albertz",
   "license": "BSD-3-Clause",
