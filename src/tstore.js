@@ -3,7 +3,7 @@
 
 import path from 'path';
 import pkg from '../package.json';
-import hogan from 'hogan.js';
+import mustache from 'mustache';
 import app from 'commander';
 import DataStore from './DataStore';
 
@@ -32,9 +32,7 @@ app.command('template <key> <template>')
 	.description('Compile data into provided handlebars template')
 	.action((key, template) => {
 		var data = store.get(key);
-		var template = hogan.compile(template);
-
-		console.log(template.render(data));
+		console.log(mustache.render(template, data));
 	});
 
 app.parse(process.argv);
