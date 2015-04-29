@@ -3,7 +3,7 @@
 
 import path from 'path';
 import pkg from '../package.json';
-import mustache from 'mustache';
+import handlebars from 'handlebars';
 import app from 'commander';
 import DataStore from './DataStore';
 
@@ -32,7 +32,7 @@ app.command('template <key> <template>')
 	.description('Compile data into provided handlebars template')
 	.action((key, template) => {
 		var data = store.get(key);
-		console.log(mustache.render(template, data));
+		console.log(handlebars.compile(template)(data));
 	});
 
 app.parse(process.argv);
