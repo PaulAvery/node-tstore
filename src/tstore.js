@@ -8,7 +8,7 @@ import app from 'commander';
 import DataStore from './DataStore';
 
 var home = process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'];
-var src = process.env.TSTORE_HOME || path.join(home, '.config/wpmanager');
+var src = process.env.TSTORE_HOME || path.join(home, '.config/tstore');
 
 var store = new DataStore(src);
 

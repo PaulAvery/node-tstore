@@ -42,7 +42,8 @@ export default class DataStore {
 
 		if(last) {
 			for(let step in steps) {
-				repl = repl[step];
+				repl[steps[step]] = repl[steps[step]] || {};
+				repl = repl[steps[step]];
 			}
 
 			repl[last] = JSON.parse(json);
