@@ -5,7 +5,7 @@
   "bin": "lib/tstore.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PaulAvery/node-tstore.git"
+    "url": "https://github.com/PaulAvery/tstore.git"
   },
   "devDependencies": {
     "eslint": "^0.18.0",
