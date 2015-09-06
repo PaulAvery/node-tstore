@@ -8,9 +8,9 @@
     "url": "https://github.com/PaulAvery/tstore.git"
   },
   "devDependencies": {
-    "eslint": "^0.18.0",
+    "eslint": "^1.3.1",
     "version-bump": "^0.1.0",
-    "babel": "^4.7.16"
+    "babel": "^5.8.23"
   },
   "scripts": {
     "test": "make lint",
