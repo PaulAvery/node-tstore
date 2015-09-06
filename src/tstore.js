@@ -5,11 +5,10 @@ import path from 'path';
 import pkg from '../package.json';
 import handlebars from 'handlebars';
 import app from 'commander';
+import home from 'user-home';
 import DataStore from './DataStore';
 
-var home = process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME'];
 var src = process.env.TSTORE_HOME || path.join(home, '.config/tstore');
-
 var store = new DataStore(src);
 
 app.version(pkg.version);
@@ -19,7 +18,8 @@ app.command('get <key>')
 	.action(key => {
 		var data = store.get(key);
 
-		console.log(JSON.stringify(data, 0, 2));
+		/* Log in single line if used to pipe stuff */
+		console.log(JSON.stringify(data, 0, process.stdout.isTTY ? 2 : 0));
 	});
 
 app.command('set <key> <json>')
