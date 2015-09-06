@@ -3,7 +3,6 @@
 
 import path from 'path';
 import pkg from '../package.json';
-import handlebars from 'handlebars';
 import app from 'commander';
 import home from 'user-home';
 import DataStore from './DataStore';
@@ -26,13 +25,6 @@ app.command('set <key> <json>')
 	.description('Set data from json string')
 	.action((key, json) => {
 		store.set(key, json);
-	});
-
-app.command('template <key> <template>')
-	.description('Compile data into provided handlebars template')
-	.action((key, template) => {
-		var data = store.get(key);
-		console.log(handlebars.compile(template)(data));
 	});
 
 app.parse(process.argv);
