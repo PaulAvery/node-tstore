@@ -14,11 +14,11 @@ export default class DataStore {
 	}
 
 	get(pth) {
-		var steps = pth.split('.');
-		var namescape = steps.shift();
-		var file = path.join(this.src, namescape + '.json');
-		var json = fs.readFileSync(file, 'utf8');
-		var data = JSON.parse(json);
+		let steps = pth.split('.');
+		let namescape = steps.shift();
+		let file = path.join(this.src, namescape + '.json');
+		let json = fs.readFileSync(file, 'utf8');
+		let data = JSON.parse(json);
 
 		for(let step in steps) {
 			data = data[steps[step]];
@@ -27,12 +27,12 @@ export default class DataStore {
 		return data;
 	}
 
-	set(pth, json) {
-		var steps = pth.split('.');
-		var namescape = steps.shift();
-		var last = steps.pop();
-		var file = path.join(this.src, namescape + '.json');
-		var repl, data;
+	set(pth, input) {
+		let steps = pth.split('.');
+		let namescape = steps.shift();
+		let last = steps.pop();
+		let file = path.join(this.src, namescape + '.json');
+		let repl, data;
 
 		try {
 			data = repl = this.get(namescape);
@@ -46,7 +46,7 @@ export default class DataStore {
 				repl = repl[steps[step]];
 			}
 
-			repl[last] = JSON.parse(json);
+			repl[last] = input;
 		}
 
 		fs.writeFileSync(file, JSON.stringify(data, 0, 2));

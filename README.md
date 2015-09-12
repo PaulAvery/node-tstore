@@ -2,6 +2,19 @@ tstore
 ======
 A tiny module to store and retrieve arbitrary JSON data. Data is stored in `~/.config/tstore` by default. You may set the `TSTORE_HOME` environment variable to override this.
 
+If used without a tty (piped e.g.) the output will not be prettified (printed in a single line)
+
+API
+---
+
+	var tstore = require('tstore');
+
+### .set(path, data)
+Saves the data at the given path.
+
+### .get(path)
+Returns the data for a path as a javascript object (or string etc.)
+
 CLI
 ---
 ### tstore set <path> <json>
