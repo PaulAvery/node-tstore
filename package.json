@@ -1,7 +1,7 @@
 {
   "name": "shtore",
   "description": "Tiny cli json data store",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "bin": "lib/bin.js",
   "main": "lib/shtore.js",
   "repository": {
