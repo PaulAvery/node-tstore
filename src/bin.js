@@ -3,7 +3,7 @@
 
 import app from 'commander';
 import pkg from '../package.json';
-import store from './tstore.js';
+import store from './shtore.js';
 
 app.version(pkg.version);
 
