@@ -22,4 +22,13 @@ app.command('set <key> <json>')
 		store.set(key, JSON.parse(json));
 	});
 
+app.command('all')
+	.description('Print all data')
+	.action(() => {
+		let data = store.all();
+
+		/* Log in single line if used to pipe stuff */
+		console.log(JSON.stringify(data, 0, process.stdout.isTTY ? 2 : 0));
+	});
+
 app.parse(process.argv);

@@ -1,4 +1,3 @@
-'use strict';
 import fs from 'fs';
 import path from 'path';
 import mkdirp from 'mkdirp';
@@ -9,7 +8,7 @@ export default class DataStore {
 		try {
 			mkdirp.sync(this.src);
 		} catch(e) {
-			console.log(e);
+			console.error(e);
 		}
 	}
 
@@ -50,5 +49,18 @@ export default class DataStore {
 		}
 
 		fs.writeFileSync(file, JSON.stringify(data, 0, 2));
+	}
+
+	all() {
+		let files = fs.readdirSync(this.src).filter(f => {
+			return !fs.statSync(path.join(this.src, f)).isDirectory();
+		});
+
+		return files.reduce((s, f) => {
+			let pth = path.basename(f, '.json');
+			s[pth] = this.get(pth);
+
+			return s;
+		}, {});
 	}
 }
