@@ -2,12 +2,12 @@ BIN = ./node_modules/.bin
 SRC = $(wildcard src/*.js)
 LIB = $(SRC:src/%.js=lib/%.js)
 
-build: babel
-babel: $(LIB)
+build: $(LIB)
+	@chmod +x lib/bin.js
 
 lib/%.js: src/%.js
 	@mkdir -p $(@D)
-	@$(BIN)/babel $< --out-file $@ --source-maps-inline --blacklist regenerator
+	@$(BIN)/babel $< --out-file $@
 
 clean:
 	@rm -rf lib
@@ -15,15 +15,15 @@ clean:
 lint:
 	@$(BIN)/eslint src
 
-release-major: lint
-	@$(BIN)/bump --major
+release-major: build lint
+	@npm version major
 
-release-minor: lint
-	@$(BIN)/bump --minor
+release-minor: build lint
+	@npm version minor
 
-release-patch: lint
-	@$(BIN)/bump --patch
+release-patch: build lint
+	@npm version patch
 
-publish:
+publish: build lint
 	git push --tags origin HEAD:master
 	npm publish

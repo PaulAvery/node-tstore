@@ -1,42 +1,22 @@
 {
   "name": "shtore",
   "description": "Tiny cli json data store",
-  "version": "3.0.0",
   "bin": "lib/bin.js",
   "main": "lib/shtore.js",
+  "author": "Florian Albertz",
+  "license": "BSD-3-Clause",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/PaulAvery/shtore.git"
   },
-  "devDependencies": {
-    "eslint": "^1.3.1",
-    "version-bump": "^0.1.0",
-    "babel": "^5.8.23"
-  },
   "scripts": {
-    "test": "make lint",
-    "prepublish": "make && make lint"
+      "test": "make lint"
   },
-  "author": "Florian Albertz",
-  "license": "BSD-3-Clause",
-  "eslintConfig": {
-    "env": {
-      "es6": true,
-      "node": true
-    },
-    "rules": {
-      "curly": [
-        2,
-        "multi-line"
-      ],
-      "quotes": [
-        2,
-        "single"
-      ]
-    },
-    "ecmaFeatures": {
-      "modules": true
-    }
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "eslint": "^1.10.3"
   },
   "dependencies": {
     "commander": "^2.8.0",
