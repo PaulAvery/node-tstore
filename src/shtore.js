@@ -1,5 +1,3 @@
-'use strict';
-
 import path from 'path';
 import home from 'user-home';
 import DataStore from './DataStore';

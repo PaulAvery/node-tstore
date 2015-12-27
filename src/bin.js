@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-'use strict';
-
 import app from 'commander';
 import pkg from '../package.json';
 import store from './shtore.js';
