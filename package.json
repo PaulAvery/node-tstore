@@ -5,13 +5,13 @@
   "main": "lib/shtore.js",
   "author": "Florian Albertz",
   "license": "BSD-3-Clause",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/PaulAvery/shtore.git"
   },
   "scripts": {
-      "test": "make lint"
+    "test": "make lint"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",
